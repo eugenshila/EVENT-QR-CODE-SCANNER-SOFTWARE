@@ -43,6 +43,7 @@
     "directories": {
       "output": "release"
     },
+    "icon": "build/icon.ico",
     "win": {
       "target": [
         {
