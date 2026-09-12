@@ -22,7 +22,32 @@ npm install
 npm run dev
 ```
 
-Vite serves the app on `http://localhost:5173` and binds to `0.0.0.0` for device/preview testing. A production build can be created with `npm run build`.
+Vite serves the web app on `http://localhost:5173` and binds to `0.0.0.0` for device/preview testing. A production build can be created with `npm run build`.
+
+## Windows desktop app and MSI installer
+
+The project now includes an Electron desktop wrapper. It serves the packaged app from a loopback-only local server on **port 5180**, keeping the desktop server separate from the existing Vite server on port 5173. If port 5180 is already occupied, the desktop wrapper automatically selects the next available port up to 5199.
+
+Build and launch the desktop app locally:
+
+```bash
+npm run build
+npm run start:desktop
+```
+
+Run the desktop development workflow on the dedicated port:
+
+```bash
+npm run dev:desktop
+```
+
+Create the Windows x64 MSI installer:
+
+```bash
+npm run desktop:build
+```
+
+The MSI is emitted to `release/Beacon-Boys-Event-Check-in-1.0.0-Setup.msi`. The repository also contains a GitHub Actions workflow at `.github/workflows/windows-installer.yml` so the MSI can be built on a Windows runner when the project is pushed or when the workflow is manually dispatched.
 
 ## Demo interactions
 

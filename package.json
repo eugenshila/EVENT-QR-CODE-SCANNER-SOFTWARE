@@ -1,12 +1,19 @@
 {
   "name": "beacon-boys-event-check-in",
   "version": "1.0.0",
+  "description": "Beacon Boys event registration, QR passes and check-in operations.",
   "private": true,
   "type": "module",
+  "main": "electron/main.cjs",
+  "author": "Beacon Boys",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "dev:desktop": "concurrently -k \"vite --host 127.0.0.1 --port 5180\" \"wait-on http://127.0.0.1:5180 && cross-env ELECTRON_START_URL=http://127.0.0.1:5180 electron .\"",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "desktop:build": "npm run build && electron-builder --win msi --x64 --publish never",
+    "desktop:dir": "npm run build && electron-builder --dir --win --x64 --publish never",
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "start:desktop": "electron ."
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
@@ -16,5 +23,42 @@
     "react-dom": "latest",
     "vite": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "concurrently": "latest",
+    "cross-env": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "wait-on": "latest"
+  },
+  "build": {
+    "appId": "org.beaconboys.eventcheckin",
+    "productName": "Beacon Boys Event Check-in",
+    "artifactName": "Beacon-Boys-Event-Check-in-${version}-Setup.${ext}",
+    "asar": true,
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "msi",
+          "arch": ["x64"]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker",
+      "signAndEditExecutable": false
+    },
+    "msi": {
+      "oneClick": false,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Beacon Boys Event Check-in"
+    }
+  }
 }
