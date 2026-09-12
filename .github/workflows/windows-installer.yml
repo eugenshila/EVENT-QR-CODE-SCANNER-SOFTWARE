@@ -54,3 +54,16 @@ jobs:
           path: release/*.msi
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish MSI release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: desktop-v${{ github.run_number }}
+          name: Beacon Boys Event Check-in Desktop v${{ github.run_number }}
+          body: |
+            Windows x64 MSI installer for the Beacon Boys Event Check-in desktop app.
+
+            The desktop app uses loopback port 5180 by default and automatically moves to the next available port when needed.
+          files: release/*.msi
+          draft: false
+          prerelease: true
