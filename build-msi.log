@@ -15,7 +15,7 @@ dist/index.html                   0.47 kB │ gzip:  0.31 kB
 dist/assets/index-C6iEl832.css   50.23 kB │ gzip: 10.36 kB
 dist/assets/index-BpWFDx6u.js   306.54 kB │ gzip: 92.07 kB
 
-[32m✓ built in 385ms[39m
+[32m✓ built in 409ms[39m
   • electron-builder  version=26.15.3 os=10.0.26100
   • loaded configuration  file=package.json ("build" field)
   • executing @electron/rebuild  electronVersion=44.3.0 arch=x64 buildFromSource=false workspaceRoot=D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE projectDir=./ appDir=./
@@ -29,32 +29,17 @@ dist/assets/index-BpWFDx6u.js   306.54 kB │ gzip: 92.07 kB
   • updating asar integrity executable resource  executablePath=release\win-unpacked\Beacon Boys Event Check-in.exe
   • executable resource editing and code signing skipped — signAndEditExecutable is false. To skip only code signing while keeping icon and metadata applied, use signExecutable: false instead.  exe=release\win-unpacked\Beacon Boys Event Check-in.exe
   • building        target=MSI arch=x64 file=release\Beacon-Boys-Event-Check-in-1.0.0-Setup.msi
-  • default Electron icon is used  reason=application icon is not set
-  • downloaded      label=wix-4.0.0.5512.2.7z progress=100%
-  • downloaded      label=7zip-win-x64.tar.gz progress=100%
-  ⨯ C:\Users\runneradmin\AppData\Local\electron-builder\Cache\wix-4.0.0.5512.2\wix-4.0.0.5512.2-1xm13\light.exe process failed 94
-Exit code:
-94
-Output:
-Exit code: 94. Command failed: C:\Users\runneradmin\AppData\Local\electron-builder\Cache\wix-4.0.0.5512.2\wix-4.0.0.5512.2-1xm13\light.exe -out D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\Beacon-Boys-Event-Check-in-1.0.0-Setup.msi -v -spdb -sw1076 -dappDir=D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\win-unpacked -pedantic -wx -ext WixUIExtension project.wixobj
-D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\__msi-x64\project.wxs(92) : error LGHT0094 : The identifier 'Icon:BeaconBoysEventCheckinIcon.exe' could not be found. Ensure you have typed the reference correctly and that all the necessary inputs are provided to the linker.
-
-WiX Toolset Linker version 4.0.0.5512
-Copyright (c) .NET Foundation and contributors. All rights reserved.
-
-
-D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\__msi-x64\project.wxs(92) : error LGHT0094 : The identifier 'Icon:BeaconBoysEventCheckinIcon.exe' could not be found. Ensure you have typed the reference correctly and that all the necessary inputs are provided to the linker.
-  failedTask=build stackTrace=Error: C:\Users\runneradmin\AppData\Local\electron-builder\Cache\wix-4.0.0.5512.2\wix-4.0.0.5512.2-1xm13\light.exe process failed 94
-Exit code:
-94
-Output:
-Exit code: 94. Command failed: C:\Users\runneradmin\AppData\Local\electron-builder\Cache\wix-4.0.0.5512.2\wix-4.0.0.5512.2-1xm13\light.exe -out D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\Beacon-Boys-Event-Check-in-1.0.0-Setup.msi -v -spdb -sw1076 -dappDir=D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\win-unpacked -pedantic -wx -ext WixUIExtension project.wixobj
-D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\__msi-x64\project.wxs(92) : error LGHT0094 : The identifier 'Icon:BeaconBoysEventCheckinIcon.exe' could not be found. Ensure you have typed the reference correctly and that all the necessary inputs are provided to the linker.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  WiX Toolset Linker version 4.0.0.5512
-Copyright (c) .NET Foundation and contributors. All rights reserved.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\release\__msi-x64\project.wxs(92) : error LGHT0094 : The identifier 'Icon:BeaconBoysEventCheckinIcon.exe' could not be found. Ensure you have typed the reference correctly and that all the necessary inputs are provided to the linker.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      at D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\builder-util\src\util.ts:192:18
-    at ChildProcess.exithandler (node:child_process:424:5)
-    at ChildProcess.emit (node:events:519:28)
-    at maybeClose (node:internal/child_process:1101:16)
-    at Process.ChildProcess._handle.onexit (node:internal/child_process:304:5)
+  ⨯ Icon must be at least 256x256 pixels, provided: 64x64  failedTask=build stackTrace=Error: Icon must be at least 256x256 pixels, provided: 64x64
+    at doConvertIcon (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\util\iconConverter.ts:247:15)
+    at convertIcon (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\util\iconConverter.ts:42:15)
+    at WinPackager.resolveIcon (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\platformPackager.ts:863:20)
+    at WinPackager.getOrConvertIcon (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\platformPackager.ts:835:20)
+    at MsiTarget.getBaseOptions (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\targets\MsiTarget.ts:189:22)
+    at MsiTarget.writeManifest (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\targets\MsiTarget.ts:175:11)
+    at MsiTarget.build (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\targets\MsiTarget.ts:85:34)
+    at async Promise.all (index 0)
+    at AsyncTaskManager.awaitTasks (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\builder-util\src\asyncTaskManager.ts:65:25)
+    at Packager.doBuild (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\packager.ts:556:5)
+    at executeFinally (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\builder-util\src\promise.ts:12:14)
+    at Packager.build (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\app-builder-lib\src\packager.ts:450:31)
+    at executeFinally (D:\a\EVENT-QR-CODE-SCANNER-SOFTWARE\EVENT-QR-CODE-SCANNER-SOFTWARE\node_modules\builder-util\src\promise.ts:12:14)
