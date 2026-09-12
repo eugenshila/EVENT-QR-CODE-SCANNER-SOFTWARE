@@ -29,10 +29,22 @@ jobs:
         run: npm ci
 
       - name: Build MSI
-        run: npm run desktop:build
+        shell: pwsh
+        run: |
+          npm run desktop:build 2>&1 | Tee-Object -FilePath build-msi.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
           GH_TOKEN: ''
+
+      - name: Upload MSI build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: beacon-boys-msi-build-log
+          path: build-msi.log
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Upload MSI installer
         uses: actions/upload-artifact@v4
