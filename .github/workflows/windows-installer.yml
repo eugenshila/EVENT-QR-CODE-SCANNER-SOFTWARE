@@ -7,7 +7,7 @@ on:
       - arena/01a09710-event-qr-code-scanner-software
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-msi:
@@ -37,14 +37,15 @@ jobs:
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
           GH_TOKEN: ''
 
-      - name: Upload MSI build log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: beacon-boys-msi-build-log
-          path: build-msi.log
-          if-no-files-found: warn
-          retention-days: 7
+      - name: Publish MSI build diagnostics when packaging fails
+        if: failure()
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build-msi.log
+          git commit -m "ci: record MSI build diagnostics [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
 
       - name: Upload MSI installer
         uses: actions/upload-artifact@v4
